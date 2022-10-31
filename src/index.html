@@ -4,7 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="scss/main.scss" rel="stylesheet" />
+    <script defer src="js/main.js" type="module"></script>
     <title>Todo</title>
   </head>
-  <body></body>
+  <body>
+    <main class="wrapper">
+      <div id="content" class="container">
+        <section class="content">
+          <h2>What needs to be done</h2>
+          <input type="text" id="task" />
+          <button id="addTask">Add Task</button>
+          <article id="todoListIncomplete" class="content__list"></article>
+        </section>
+        <section class="content">
+          <h2>What is done</h2>
+          <article id="todoListComplete" class="content__list"></article>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>

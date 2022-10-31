@@ -1,0 +1,34 @@
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.wrapper {
+  background-color: grey;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  &__list {
+    &--item {
+      list-style-type: none;
+      padding: 5px;
+      margin: 5px;
+      background-color: yellow;
+    }
+  }
+}
