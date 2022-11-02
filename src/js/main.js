@@ -49,14 +49,40 @@ function displayTodoList() {
     // task-done
     const listItemRemove = document.createElement("span");
     listItemRemove.classList.add("card__task--remove");
+    /*
+    listItemChecked.addEventListener("click", () => {
+      if (listItemChecked.checked === true) {
+        todoList[i].completed = true;
+        console.log(todoList);
+      } else {
+        todoList[i].completed = false;
+        console.log(todoList);
+      }
+    });
+    */
+    listItemTask.addEventListener("click", () => {
+      if (listItemTask.checked === true) {
+        todoList[i].completed = true;
+        console.log(todoList);
+      } else {
+        todoList[i].completed = false;
+        console.log(todoList);
+      }
+    });
+
+    listItemRemove.addEventListener("click", () => {
+      todoList.splice([i], 1);
+      console.log(todoList);
+      displayTodoList();
+    });
 
     // what each element should display.
     listItemRemove.innerHTML = `<i class="bi bi-x-lg"></i>`;
     listItemTask.innerText += todoList[i].task;
 
     // appended all the elements in the right order.
-    listItemContainer.appendChild(listItemChecked);
     listItemContainer.appendChild(listItemTask);
+    listItemContainer.appendChild(listItemChecked);
     listItemContainer.appendChild(listItemRemove);
     todoListContainer.appendChild(listItemContainer);
   }
