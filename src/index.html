@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="scss/main.scss" rel="stylesheet" />
     <script defer src="js/main.js" type="module"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
     <title>Todo</title>
   </head>
   <body>
     <main class="wrapper">
-      <div id="content" class="container">
+      <div class="container">
         <section class="content">
-          <h2>What needs to be done</h2>
-          <input type="text" id="task" />
-
+          <input type="text" placeholder="Your task..." id="task" />
           <button id="addTask">Add Task</button>
-          <article id="todoListIncomplete" class="content__list"></article>
-        </section>
-        <section class="content">
-          <h2>What is done</h2>
-          <article id="todoListComplete" class="content__list"></article>
+
+          <h2>What needs to be done</h2>
+          <article id="todoListDisplay" class="card"></article>
         </section>
       </div>
     </main>

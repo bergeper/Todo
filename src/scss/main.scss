@@ -19,16 +19,28 @@ body {
   justify-content: center;
 }
 
-.content {
+.card {
   display: flex;
   flex-direction: column;
 
-  &__list {
-    &--item {
-      list-style-type: none;
-      padding: 5px;
-      margin: 5px;
-      background-color: yellow;
+  &__task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(235, 235, 235);
+    &--name {
+    }
+    &--remove {
+    }
+    &--check {
     }
   }
+}
+
+.done {
+  background-color: red;
 }
