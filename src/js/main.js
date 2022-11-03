@@ -1,17 +1,13 @@
-import { Todo } from "./todo";
+import { Todo } from "./models/todo";
 
-// creating objects
-let todos = [
-  new Todo("Handla Mat", false),
-  new Todo("Springa/Träna", false),
-  new Todo("Uppdatera din portfolio", false),
-  new Todo("Laga matlådor", false),
-];
-// pushing the new objects into a list
+// to use localStorage everytime
+window.addEventListener("load", () => {
+  todoList = JSON.parse(localStorage.getItem("TodoList")) || [];
+  createTodoList();
+});
+
+// creating objects to have in list when starting the project
 let todoList = [];
-for (let i = 0; i < todos.length; i++) {
-  todoList.push(todos[i]);
-}
 
 // Getting the article tag.
 const todoListContainer = document.getElementById("todoListDisplay");
@@ -19,20 +15,21 @@ const todoListContainer = document.getElementById("todoListDisplay");
 const inputTask = document.getElementById("task");
 const buttonTask = document.getElementById("addTask");
 
-displayTodoList();
+// running the project
+// createTodoList();
 
 buttonTask.addEventListener("click", createTodo);
 // Create a todo
 function createTodo() {
   const newTodo = new Todo(inputTask.value, false);
   todoList.push(newTodo);
-
+  localStorage.setItem("TodoList", JSON.stringify(todoList));
   inputTask.value = "";
-  displayTodoList(newTodo);
+  createTodoList(newTodo);
 }
 
 // Adding objects to the list
-function displayTodoList() {
+function createTodoList() {
   // clear when adding new item to list
   todoListContainer.innerHTML = "";
   for (let i = 0; i < todoList.length; i++) {
@@ -43,37 +40,35 @@ function displayTodoList() {
     const listItemChecked = document.createElement("input");
     listItemChecked.classList.add("card__task--check");
     listItemChecked.type = "checkbox";
+    listItemChecked.checked = todoList[i].completed;
+
     // task-name
     const listItemTask = document.createElement("p");
     listItemTask.classList.add("card__task--name");
     // task-done
     const listItemRemove = document.createElement("span");
     listItemRemove.classList.add("card__task--remove");
-    /*
-    listItemChecked.addEventListener("click", () => {
+
+    // To mark object as done.
+    listItemChecked.addEventListener("change", () => {
       if (listItemChecked.checked === true) {
         todoList[i].completed = true;
+        // Just to see that the object actually go true.
         console.log(todoList);
       } else {
         todoList[i].completed = false;
+        // Just to see that the object actually go false.
         console.log(todoList);
       }
-    });
-    */
-    listItemTask.addEventListener("click", () => {
-      if (listItemTask.checked === true) {
-        todoList[i].completed = true;
-        console.log(todoList);
-      } else {
-        todoList[i].completed = false;
-        console.log(todoList);
-      }
+      localStorage.setItem("TodoList", JSON.stringify(todoList));
     });
 
+    // remove item on position
     listItemRemove.addEventListener("click", () => {
       todoList.splice([i], 1);
+      localStorage.setItem("TodoList", JSON.stringify(todoList));
       console.log(todoList);
-      displayTodoList();
+      createTodoList();
     });
 
     // what each element should display.
@@ -81,12 +76,52 @@ function displayTodoList() {
     listItemTask.innerText += todoList[i].task;
 
     // appended all the elements in the right order.
-    listItemContainer.appendChild(listItemTask);
     listItemContainer.appendChild(listItemChecked);
+    listItemContainer.appendChild(listItemTask);
     listItemContainer.appendChild(listItemRemove);
     todoListContainer.appendChild(listItemContainer);
+
+    // TODO -> ADD a sorting button
   }
 
   // just to see what happends
   console.log(todoList);
 }
+
+/*
+function createTodoListDone() {
+  for (let i = 0; todoListComplete.length; i++) {
+    // create elements too display the list.
+    const listItemContainer = document.createElement("div");
+    listItemContainer.classList.add("card__done");
+    // task-checked
+    const listItemChecked = document.createElement("input");
+    listItemChecked.classList.add("card__done--check");
+    listItemChecked.type = "checkbox";
+    // task-name
+    const listItemTask = document.createElement("p");
+    listItemTask.classList.add("card__done--name");
+    // task-done
+    const listItemRemove = document.createElement("span");
+    listItemRemove.classList.add("card__done--remove");
+
+    // what each element should display.
+    listItemRemove.innerHTML = `<i class="bi bi-x-lg"></i>`;
+    listItemTask.innerText += todoList[i].task;
+
+    // remove item on position
+    listItemRemove.addEventListener("click", () => {
+      todoList.splice([i], 1);
+      localStorage.setItem("TodoList", JSON.stringify(todoList));
+      console.log(todoList);
+      createTodoList();
+    });
+
+    // appended all the elements in the right order.
+    listItemContainer.appendChild(listItemChecked);
+    listItemContainer.appendChild(listItemTask);
+    listItemContainer.appendChild(listItemRemove);
+    todoListContainer.appendChild(listItemContainer);
+  }
+}
+*/

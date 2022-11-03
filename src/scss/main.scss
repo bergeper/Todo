@@ -19,25 +19,26 @@ body {
   justify-content: center;
 }
 
-.card {
+.cards {
   display: flex;
   flex-direction: column;
-
-  &__task {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-    padding: 5px;
-    margin: 5px;
-    background-color: rgb(235, 235, 235);
-    &--name {
-    }
-    &--remove {
-    }
-    &--check {
-    }
+}
+.card__task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  background-color: rgba(8, 255, 49, 0.226);
+  &--name {
+    font-weight: 700;
+  }
+  &--remove {
+    color: pink;
+  }
+  &--check {
   }
 }
 
