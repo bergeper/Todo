@@ -1,22 +1,22 @@
 import { Todo } from "./models/todo";
 
 // to use localStorage everytime
-window.addEventListener("load", () => {
-  todoList = JSON.parse(localStorage.getItem("TodoList")) || [];
-  createTodoList();
-});
 
 // creating objects to have in list when starting the project
 let todoList = [];
+
+window.addEventListener("load", () => {
+  todoList = JSON.parse(localStorage.getItem("TodoList")).map((todo) => {
+    return new Todo(todo.task, todo.completed);
+  });
+  createTodoList();
+});
 
 // Getting the article tag.
 const todoListContainer = document.getElementById("todoListDisplay");
 // input and button
 const inputTask = document.getElementById("task");
 const buttonTask = document.getElementById("addTask");
-
-// running the project
-// createTodoList();
 
 buttonTask.addEventListener("click", createTodo);
 // Create a todo
