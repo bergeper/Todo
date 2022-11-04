@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sofia"
+    />
     <link href="scss/main.scss" rel="stylesheet" />
     <script defer src="js/main.js" type="module"></script>
     <link
@@ -16,9 +20,10 @@
     <main class="wrapper">
       <div class="container">
         <section class="content">
+          <h2>Todo-List</h2>
           <article class="header">
             <form>
-              <h2 class="header__heading">Add a Task</h2>
+              <h4 class="header__heading">Add a Task</h4>
               <input
                 type="text"
                 placeholder="Your task..."
@@ -28,7 +33,7 @@
               <button id="addTask" class="header__btn">Add Task</button>
             </form>
           </article>
-          <h2 class="header__heading">What needs to be done</h2>
+          <h4 class="header__heading">What needs to be done</h4>
           <article id="todoListDisplay" class="card"></article>
           <button id="sortTask" class="sort__btn">Sort it up!</button>
         </section>

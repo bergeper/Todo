@@ -2,12 +2,11 @@ html,
 body {
   box-sizing: border-box;
   margin: 0;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: Montserrat;
 }
 
 .wrapper {
-  background-color: rgb(235, 233, 233);
+  background-color: rgba(255, 255, 255, 0.411);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -23,7 +22,7 @@ body {
 
 .content {
   padding: 20px;
-  background-color: white;
+  background-color: rgba(27, 116, 0, 0.342);
   border-radius: 20px;
   text-align: center;
 }
@@ -31,22 +30,33 @@ body {
   text-align: center;
   &__heading {
     text-align: center;
+    text-decoration: underline;
   }
   &__input {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 5px;
+    background-color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Montserrat;
   }
   &__btn {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 5px;
+    background-color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Montserrat;
     cursor: pointer;
     &:active {
       scale: 0.9;
     }
+    &:hover {
+      color: green;
+    }
   }
 }
+// Generated elements and classes in javascript
 .card__task {
   display: flex;
   flex-direction: row;
@@ -55,12 +65,17 @@ body {
   text-align: center;
   padding: 2px;
   margin: 5px 0 5px 0;
-  border: 2px solid black;
-  border-radius: 10px;
+
+  background-color: rgba(252, 252, 252, 0.829);
+
   &--name {
-    padding: 5px;
-    font-size: 20px;
+    margin: 5px;
+    font-size: 15px;
     font-weight: 700;
+  }
+  &--done {
+    text-decoration: line-through;
+    background-color: rgba(0, 255, 0, 0.322);
   }
   &--remove {
     padding: 5px;
@@ -68,6 +83,7 @@ body {
     cursor: pointer;
     &:hover {
       color: gray;
+      scale: 1.1;
     }
     &:active {
       scale: 0.9;
@@ -77,19 +93,30 @@ body {
     margin: 5px;
     width: 20px;
     height: 20px;
+    accent-color: black;
     cursor: pointer;
-    &:checked {
-      background-color: green;
+    &:hover {
+      scale: 1.1;
+    }
+    &:active {
+      scale: 0.9;
     }
   }
 }
 
 .sort__btn {
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 5px;
+  background-color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Montserrat;
   cursor: pointer;
   &:active {
     scale: 0.9;
+  }
+  &:hover {
+    background-color: white;
   }
 }

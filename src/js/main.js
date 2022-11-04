@@ -2,8 +2,10 @@ import { Todo } from "./models/todo";
 
 let todoList = [];
 // waiting for the whole page to load before executing
+
 window.addEventListener("load", () => {
   // Looping the TodoList from LS to create objects with the class Todo
+  // Tack för att du påminde mig om map-loopen :)
   todoList = JSON.parse(localStorage.getItem("TodoList")).map((todo) => {
     return new Todo(todo.task, todo.completed);
   });
@@ -12,23 +14,31 @@ window.addEventListener("load", () => {
 
 // Getting the article tag.
 const todoListContainer = document.getElementById("todoListDisplay");
+
 // input and button
 const inputTask = document.getElementById("task");
 const buttonTask = document.getElementById("addTask");
+
 // sort button
 const buttonSort = document.getElementById("sortTask");
 
 buttonTask.addEventListener("click", createTodo);
+
 // Create a todo
 function createTodo() {
   const newTodo = new Todo(inputTask.value, false);
-  todoList.push(newTodo);
-  localStorage.setItem("TodoList", JSON.stringify(todoList));
-  inputTask.value = "";
-  createTodoList(newTodo);
+  if (inputTask.value === "") {
+    alert("You need to write something");
+  } else {
+    todoList.push(newTodo);
+    localStorage.setItem("TodoList", JSON.stringify(todoList));
+    inputTask.value = "";
+    createTodoList(newTodo);
+  }
 }
 
 buttonSort.addEventListener("click", sortTodos);
+
 // sorts based on a boolean in the property completed.
 function sortTodos() {
   todoList.sort((a, b) => (a.completed > b.completed ? 1 : -1));
@@ -56,19 +66,31 @@ function createTodoList() {
     listItemChecked.classList.add("card__task--check");
     listItemChecked.type = "checkbox";
     listItemChecked.checked = todoList[i].completed;
+
     // To mark object as done.
     listItemChecked.addEventListener("change", () => {
       if (listItemChecked.checked === true) {
         todoList[i].completed = true;
-        // Just to see that the object actually go true.
+        listItemContainer.classList.add("card__task--done");
+        // Just to see that the object actually go true in the list
         console.log(todoList);
       } else {
         todoList[i].completed = false;
-        // Just to see that the object actually go false.
+        listItemContainer.classList.remove("class", "card__task--done");
+        // Just to see that the object actually go false in the list
         console.log(todoList);
       }
       localStorage.setItem("TodoList", JSON.stringify(todoList));
     });
+
+    // Detta känns som en riktigt ful lösning
+    // men det fungerar.....
+    // To keep the CSS even if you reload or close the page.
+    if (listItemChecked.checked === true) {
+      listItemContainer.classList.add("card__task--done");
+    } else {
+      listItemContainer.classList.remove("class", "card__task--done");
+    }
 
     // remove item on position
     listItemRemove.addEventListener("click", () => {
