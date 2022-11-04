@@ -25,6 +25,7 @@ body {
   padding: 20px;
   background-color: white;
   border-radius: 20px;
+  text-align: center;
 }
 .header {
   text-align: center;
@@ -41,6 +42,9 @@ body {
     border-radius: 10px;
     padding: 5px;
     cursor: pointer;
+    &:active {
+      scale: 0.9;
+    }
   }
 }
 .card__task {
@@ -77,5 +81,15 @@ body {
     &:checked {
       background-color: green;
     }
+  }
+}
+
+.sort__btn {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+  &:active {
+    scale: 0.9;
   }
 }

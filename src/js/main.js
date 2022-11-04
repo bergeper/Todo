@@ -29,18 +29,12 @@ function createTodo() {
 }
 
 buttonSort.addEventListener("click", sortTodos);
-
-function sortTodos(sortTodo) {
-  sortTodo = todoList.reverse();
-
-  createTodoList();
-}
-/*
+// sorts based on a boolean in the property completed.
 function sortTodos() {
-  todoList.sort((a, b) => (a.task > b.task ? 1 : -1));
+  todoList.sort((a, b) => (a.completed > b.completed ? 1 : -1));
   createTodoList();
 }
-*/
+
 // Adding objects to the list
 function createTodoList() {
   // clear when adding new item to list
@@ -93,8 +87,6 @@ function createTodoList() {
     listItemContainer.appendChild(listItemTask);
     listItemContainer.appendChild(listItemRemove);
     todoListContainer.appendChild(listItemContainer);
-
-    // TODO -> ADD a sorting button
   }
 
   // just to see what happends
