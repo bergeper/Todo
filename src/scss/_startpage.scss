@@ -1,0 +1,122 @@
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Montserrat;
+}
+
+.wrapper {
+  background-color: rgba(255, 255, 255, 0.411);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  padding: 20px;
+  background-color: rgba(27, 116, 0, 0.342);
+  border-radius: 20px;
+  text-align: center;
+}
+.header {
+  text-align: center;
+  &__heading {
+    text-align: center;
+    text-decoration: underline;
+  }
+  &__input {
+    background-color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Montserrat;
+  }
+  &__btn {
+    background-color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Montserrat;
+    cursor: pointer;
+    &:active {
+      scale: 0.9;
+    }
+    &:hover {
+      background-color: rgba(3, 139, 33, 0.336);
+    }
+  }
+}
+// Generated elements and classes in javascript
+.card__task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 2px;
+  margin: 5px 0 5px 0;
+
+  background-color: rgba(252, 252, 252, 0.829);
+
+  &--name {
+    margin: 5px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  &--done {
+    text-decoration: line-through;
+    background-color: rgba(0, 255, 0, 0.322);
+  }
+  &--remove {
+    padding: 5px;
+    font-size: 25px;
+    cursor: pointer;
+    &:hover {
+      color: gray;
+      scale: 1.1;
+    }
+    &:active {
+      scale: 0.9;
+    }
+  }
+  &--check {
+    margin: 5px;
+    width: 20px;
+    height: 20px;
+    accent-color: black;
+    cursor: pointer;
+    &:hover {
+      scale: 1.1;
+    }
+    &:active {
+      scale: 0.9;
+    }
+  }
+}
+
+.sort__btn {
+  background-color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Montserrat;
+  cursor: pointer;
+  &:active {
+    scale: 0.9;
+  }
+  &:hover {
+    background-color: rgba(3, 139, 33, 0.336);
+  }
+}
