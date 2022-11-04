@@ -18,11 +18,11 @@ const todoListContainer = document.getElementById("todoListDisplay");
 // input and button
 const inputTask = document.getElementById("task");
 const buttonTask = document.getElementById("addTask");
+buttonTask.addEventListener("click", createTodo);
 
 // sort button
 const buttonSort = document.getElementById("sortTask");
-
-buttonTask.addEventListener("click", createTodo);
+buttonSort.addEventListener("click", sortTodos);
 
 // Create a todo
 function createTodo() {
@@ -36,8 +36,6 @@ function createTodo() {
     createTodoList(newTodo);
   }
 }
-
-buttonSort.addEventListener("click", sortTodos);
 
 // sorts based on a boolean in the property completed.
 function sortTodos() {
