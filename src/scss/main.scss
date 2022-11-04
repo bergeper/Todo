@@ -2,11 +2,13 @@ html,
 body {
   box-sizing: border-box;
   margin: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .wrapper {
-  background-color: grey;
-  height: 100vh;
+  background-color: rgb(235, 233, 233);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
 }
@@ -19,29 +21,61 @@ body {
   justify-content: center;
 }
 
-.cards {
-  display: flex;
-  flex-direction: column;
+.content {
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+}
+.header {
+  text-align: center;
+  &__heading {
+    text-align: center;
+  }
+  &__input {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  &__btn {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+  }
 }
 .card__task {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
-  padding: 5px;
-  margin: 5px;
-  background-color: rgba(8, 255, 49, 0.226);
+  padding: 2px;
+  margin: 5px 0 5px 0;
+  border: 2px solid black;
+  border-radius: 10px;
   &--name {
+    padding: 5px;
+    font-size: 20px;
     font-weight: 700;
   }
   &--remove {
-    color: pink;
+    padding: 5px;
+    font-size: 25px;
+    cursor: pointer;
+    &:hover {
+      color: gray;
+    }
+    &:active {
+      scale: 0.9;
+    }
   }
   &--check {
+    margin: 5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    &:checked {
+      background-color: green;
+    }
   }
-}
-
-.done {
-  background-color: red;
 }

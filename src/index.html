@@ -16,11 +16,21 @@
     <main class="wrapper">
       <div class="container">
         <section class="content">
-          <input type="text" placeholder="Your task..." id="task" />
-          <button id="addTask">Add Task</button>
-
-          <h2>What needs to be done</h2>
+          <article class="header">
+            <form>
+              <h2 class="header__heading">Add a Task</h2>
+              <input
+                type="text"
+                placeholder="Your task..."
+                id="task"
+                class="header__input"
+              />
+              <button id="addTask" class="header__btn">Add Task</button>
+            </form>
+          </article>
+          <h2 class="header__heading">What needs to be done</h2>
           <article id="todoListDisplay" class="card"></article>
+          <button id="sortTask">Sort your task</button>
         </section>
       </div>
     </main>

@@ -1,11 +1,9 @@
 import { Todo } from "./models/todo";
 
-// to use localStorage everytime
-
-// creating objects to have in list when starting the project
 let todoList = [];
-
+// waiting for the whole page to load before executing
 window.addEventListener("load", () => {
+  // Looping the TodoList from LS to create objects with the class Todo
   todoList = JSON.parse(localStorage.getItem("TodoList")).map((todo) => {
     return new Todo(todo.task, todo.completed);
   });
@@ -17,6 +15,8 @@ const todoListContainer = document.getElementById("todoListDisplay");
 // input and button
 const inputTask = document.getElementById("task");
 const buttonTask = document.getElementById("addTask");
+// sort button
+const buttonSort = document.getElementById("sortTask");
 
 buttonTask.addEventListener("click", createTodo);
 // Create a todo
@@ -28,6 +28,19 @@ function createTodo() {
   createTodoList(newTodo);
 }
 
+buttonSort.addEventListener("click", sortTodos);
+
+function sortTodos(sortTodo) {
+  sortTodo = todoList.reverse();
+
+  createTodoList();
+}
+/*
+function sortTodos() {
+  todoList.sort((a, b) => (a.task > b.task ? 1 : -1));
+  createTodoList();
+}
+*/
 // Adding objects to the list
 function createTodoList() {
   // clear when adding new item to list
@@ -36,11 +49,6 @@ function createTodoList() {
     // create elements too display the list.
     const listItemContainer = document.createElement("div");
     listItemContainer.classList.add("card__task");
-    // task-checked
-    const listItemChecked = document.createElement("input");
-    listItemChecked.classList.add("card__task--check");
-    listItemChecked.type = "checkbox";
-    listItemChecked.checked = todoList[i].completed;
 
     // task-name
     const listItemTask = document.createElement("p");
@@ -49,6 +57,11 @@ function createTodoList() {
     const listItemRemove = document.createElement("span");
     listItemRemove.classList.add("card__task--remove");
 
+    // task-checked
+    const listItemChecked = document.createElement("input");
+    listItemChecked.classList.add("card__task--check");
+    listItemChecked.type = "checkbox";
+    listItemChecked.checked = todoList[i].completed;
     // To mark object as done.
     listItemChecked.addEventListener("change", () => {
       if (listItemChecked.checked === true) {
@@ -72,7 +85,7 @@ function createTodoList() {
     });
 
     // what each element should display.
-    listItemRemove.innerHTML = `<i class="bi bi-x-lg"></i>`;
+    listItemRemove.innerHTML = `<i class="bi bi-x-square-fill"></i>`;
     listItemTask.innerText += todoList[i].task;
 
     // appended all the elements in the right order.
